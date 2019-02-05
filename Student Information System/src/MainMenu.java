@@ -12,7 +12,6 @@ public class MainMenu
 		public static void main(String[]args) throws IOException
 		{
 			mainMenu();
-			fillStudentRoster();
 		}
 		
 		public static void fillStudentRoster() throws IOException // Fills the roster with Student Objects
@@ -37,19 +36,23 @@ public class MainMenu
 					String period3 = file.next();
 					String period3Grade = file.next();
 					courses[2] = new Classes(3, period3, period3Grade);
-					
-					double gpa = period1Grade.substring(0, 1).equals("A")? 4: period1Grade.substring(0,1).equals("B")? 3: period1Grade.substring(0,1).equals("C")? 2: period1Grade.substring(0,1).equals("D")? 1:0;
-					gpa += period2Grade.substring(0, 1).equals("A")? 4: period2Grade.substring(0,1).equals("B")? 3: period2Grade.substring(0,1).equals("C")? 2: period2Grade.substring(0,1).equals("D")? 1:0;
-					gpa += period3Grade.substring(0, 1).equals("A")? 4: period3Grade.substring(0,1).equals("B")? 3: period3Grade.substring(0,1).equals("C")? 2: period3Grade.substring(0,1).equals("D")? 1:0;
+
+					double gpa = period1Grade.equals("A")? 4.0 : period1Grade.equals("A-")? 3.7 : period1Grade.equals("B+")? 3.3 : period1Grade.equals("B")? 3 : period1Grade.equals("B-")? 2.7 : period1Grade.equals("C+")? 2.3 : period1Grade.equals("C")? 2 : period1Grade.equals("C-")? 1.7 : period1Grade.equals("D+")? 1.3 : period1Grade.equals("D")?  1.0 : period1Grade.equals("D-")? 0.7 : 0;
+					gpa += period2Grade.equals("A")? 4.0 : period2Grade.equals("A-")? 3.7 : period2Grade.equals("B+")? 3.3 : period2Grade.equals("B")? 3 : period2Grade.equals("B-")? 2.7 : period2Grade.equals("C+")? 2.3 : period2Grade.equals("C")? 2 : period2Grade.equals("C-")? 1.7 : period2Grade.equals("D+")? 1.3 : period2Grade.equals("D")?  1.0 : period2Grade.equals("D-")? 0.7 : 0;
+					gpa += period3Grade.equals("A")? 4.0 : period3Grade.equals("A-")? 3.7 : period3Grade.equals("B+")? 3.3 : period3Grade.equals("B")? 3 : period3Grade.equals("B-")? 2.7 : period3Grade.equals("C+")? 2.3 : period3Grade.equals("C")? 2 : period3Grade.equals("C-")? 1.7 : period3Grade.equals("D+")? 1.3 : period3Grade.equals("D")?  1.0 : period3Grade.equals("D-")? 0.7 : 0;
 					
 					gpa /= 3;
 					
 					roster.add(new Student(firstName, lastName, gpa, courses));
+					
+//					Format decimal = new DecimalFormat("0.00");
+//					System.out.println(decimal.format(gpa));
 				}
 		}
 		
-		public static void mainMenu() // Asks the user what he/she wants to do
+		public static void mainMenu() throws IOException // Asks the user what he/she wants to do
 		{
+			fillStudentRoster();
 			boolean shouldContinue;
 			do
 				{
