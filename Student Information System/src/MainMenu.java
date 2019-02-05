@@ -11,13 +11,13 @@ public class MainMenu
 		
 		public static void main(String[]args) throws IOException
 		{
+			mainMenu();
 			fillStudentRoster();
 		}
 		
-		public static void fillStudentRoster() throws IOException
+		public static void fillStudentRoster() throws IOException // Fills the roster with Student Objects
 		{
 			Scanner file = new Scanner(new File("information"));
-			int i = 0;
 			while (file.hasNext())
 				{
 					String firstName = file.next();
@@ -45,13 +45,65 @@ public class MainMenu
 					gpa /= 3;
 					
 					roster.add(new Student(firstName, lastName, gpa, courses));
-					
-					Format format = new DecimalFormat("0.00");
-					System.out.println(roster.get(i).getFirstName() + " " + roster.get(i).getLastName() + " " + roster.get(i).getGpa());
-					System.out.println(roster.get(i).getCourses()[0].getClassName() + " " + format.format(roster.get(i).getCourses()[0].getGrade()));
-					System.out.println(roster.get(i).getCourses()[1].getClassName() + " " + roster.get(i).getCourses()[1].getGrade());
-					System.out.println(roster.get(i).getCourses()[2].getClassName() + " " + roster.get(i).getCourses()[2].getGrade());
-					i++;
 				}
+		}
+		
+		public static void mainMenu() // Asks the user what he/she wants to do
+		{
+			boolean shouldContinue;
+			do
+				{
+					System.out.println("What Would You Like To Do?");
+					System.out.println("     1) Add or Delete a Student"
+					+ "\n     2) Change Student Grades/Schedule"
+					+ "\n     3) Sort Students");
+					Scanner userInput = new Scanner(System.in);
+					int answer = userInput.nextInt();
+					switch (answer)
+					{
+						case 1:
+								{
+									boolean tryAgain = false;
+									do
+										{
+										System.out.println("Would You Like To Add Or Delete A Student?"
+											+ "\n     1) Add Student"
+											+ "\n     2) Delete Student");
+											userInput = new Scanner(System.in);
+											answer = userInput.nextInt();
+//											if (answer == 1)
+//												//AddStudent.main(args);
+//											else if (answer == 2)
+//												//DeleteStudent.main(args);
+//											else
+//												tryAgain = true;
+										} while (tryAgain);
+									
+									break;
+								}
+						case 2:
+								{
+									// Change Student Grades Or Schedule Class
+									break;
+								}
+						case 3:
+								{
+									// Sort Method In the Sort Class
+									break;
+								}
+						default:
+								{
+									System.out.println("Try Something Else \n");
+									break;
+								}
+					}
+					System.out.println("Would You Like To Do Something Else?"
+							+ "\n     1) Yes"
+							+ "\n     2) No");
+					userInput = new Scanner(System.in);
+					answer = userInput.nextInt();
+					
+					shouldContinue = answer == 1? true: false;
+				} while (shouldContinue);
 		}
 	}
