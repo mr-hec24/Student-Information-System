@@ -1,9 +1,6 @@
-import java.io.File;
-import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.Format;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.text.*;
+import java.util.*;
 
 public class MainMenu
 	{
@@ -12,42 +9,6 @@ public class MainMenu
 		public static void main(String[]args) throws IOException
 		{
 			mainMenu();
-		}
-		
-		public static void fillStudentRoster() throws IOException // Fills the roster with Student Objects
-		{
-			Scanner file = new Scanner(new File("information"));
-			while (file.hasNext())
-				{
-					String firstName = file.next();
-					String lastName = file.next();
-					
-					Classes[] courses = new Classes[3];
-					
-					String period1 = file.next();
-					String period1Grade = file.next();
-					courses[0] = new Classes(1, period1, period1Grade);
-					
-					
-					String period2 = file.next();
-					String period2Grade = file.next();
-					courses[1] = new Classes(2, period2, period2Grade);
-					
-					String period3 = file.next();
-					String period3Grade = file.next();
-					courses[2] = new Classes(3, period3, period3Grade);
-
-					double gpa = period1Grade.equals("A")? 4.0 : period1Grade.equals("A-")? 3.7 : period1Grade.equals("B+")? 3.3 : period1Grade.equals("B")? 3 : period1Grade.equals("B-")? 2.7 : period1Grade.equals("C+")? 2.3 : period1Grade.equals("C")? 2 : period1Grade.equals("C-")? 1.7 : period1Grade.equals("D+")? 1.3 : period1Grade.equals("D")?  1.0 : period1Grade.equals("D-")? 0.7 : 0;
-					gpa += period2Grade.equals("A")? 4.0 : period2Grade.equals("A-")? 3.7 : period2Grade.equals("B+")? 3.3 : period2Grade.equals("B")? 3 : period2Grade.equals("B-")? 2.7 : period2Grade.equals("C+")? 2.3 : period2Grade.equals("C")? 2 : period2Grade.equals("C-")? 1.7 : period2Grade.equals("D+")? 1.3 : period2Grade.equals("D")?  1.0 : period2Grade.equals("D-")? 0.7 : 0;
-					gpa += period3Grade.equals("A")? 4.0 : period3Grade.equals("A-")? 3.7 : period3Grade.equals("B+")? 3.3 : period3Grade.equals("B")? 3 : period3Grade.equals("B-")? 2.7 : period3Grade.equals("C+")? 2.3 : period3Grade.equals("C")? 2 : period3Grade.equals("C-")? 1.7 : period3Grade.equals("D+")? 1.3 : period3Grade.equals("D")?  1.0 : period3Grade.equals("D-")? 0.7 : 0;
-					
-					gpa /= 3;
-					
-					roster.add(new Student(firstName, lastName, gpa, courses));
-					
-//					Format decimal = new DecimalFormat("0.00");
-//					System.out.println(decimal.format(gpa));
-				}
 		}
 		
 		public static void mainMenu() throws IOException // Asks the user what he/she wants to do
@@ -74,12 +35,15 @@ public class MainMenu
 											+ "\n     2) Delete Student");
 											userInput = new Scanner(System.in);
 											answer = userInput.nextInt();
-//											if (answer == 1)
-//												//AddStudent.main(args);
-//											else if (answer == 2)
-//												//DeleteStudent.main(args);
-//											else
-//												tryAgain = true;
+											if (answer == 1)
+												System.out.println("ADDING STUDENTS");
+											
+											else if (answer == 2)
+												System.out.println("REMOVING STUDENTS");
+											
+											else
+												tryAgain = true;
+											
 										} while (tryAgain);
 									
 									break;
@@ -109,4 +73,43 @@ public class MainMenu
 					shouldContinue = answer == 1? true: false;
 				} while (shouldContinue);
 		}
+		
+		public static void fillStudentRoster() throws IOException // Fills the roster with Student Objects
+			{
+				Scanner file = new Scanner(new File("information"));
+				while (file.hasNext())
+					{
+						String firstName = file.next();
+						String lastName = file.next();
+						
+						Classes[] courses = new Classes[3];
+						
+						String period1 = file.next();
+						String period1Grade = file.next();
+						courses[0] = new Classes(1, period1, period1Grade);
+						
+						
+						String period2 = file.next();
+						String period2Grade = file.next();
+						courses[1] = new Classes(2, period2, period2Grade);
+						
+						String period3 = file.next();
+						String period3Grade = file.next();
+						courses[2] = new Classes(3, period3, period3Grade);
+
+						// The Following Three Lines Calculates The Letter GRade Point Value
+						double gpa = period1Grade.equals("A")? 4.0 : period1Grade.equals("A-")? 3.7 : period1Grade.equals("B+")? 3.3 : period1Grade.equals("B")? 3 : period1Grade.equals("B-")? 2.7 : period1Grade.equals("C+")? 2.3 : period1Grade.equals("C")? 2 : period1Grade.equals("C-")? 1.7 : period1Grade.equals("D+")? 1.3 : period1Grade.equals("D")?  1.0 : period1Grade.equals("D-")? 0.7 : 0;
+						gpa += period2Grade.equals("A")? 4.0 : period2Grade.equals("A-")? 3.7 : period2Grade.equals("B+")? 3.3 : period2Grade.equals("B")? 3 : period2Grade.equals("B-")? 2.7 : period2Grade.equals("C+")? 2.3 : period2Grade.equals("C")? 2 : period2Grade.equals("C-")? 1.7 : period2Grade.equals("D+")? 1.3 : period2Grade.equals("D")?  1.0 : period2Grade.equals("D-")? 0.7 : 0;
+						gpa += period3Grade.equals("A")? 4.0 : period3Grade.equals("A-")? 3.7 : period3Grade.equals("B+")? 3.3 : period3Grade.equals("B")? 3 : period3Grade.equals("B-")? 2.7 : period3Grade.equals("C+")? 2.3 : period3Grade.equals("C")? 2 : period3Grade.equals("C-")? 1.7 : period3Grade.equals("D+")? 1.3 : period3Grade.equals("D")?  1.0 : period3Grade.equals("D-")? 0.7 : 0;
+						
+							
+						gpa /= 3;
+						Format decimal = new DecimalFormat("0.00");
+						String tempGPA = decimal.format(gpa);
+						gpa = Double.valueOf(tempGPA);
+						
+						roster.add(new Student(firstName, lastName, gpa, courses));
+					}
+			}
+			
 	}
