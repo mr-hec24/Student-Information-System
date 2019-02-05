@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.text.*;
 import java.util.*;
@@ -55,7 +56,7 @@ public class MainMenu
 								}
 						case 3:
 								{
-									// Sort Method In the Sort Class
+									Sort.mainMMethod();
 									break;
 								}
 						default:
