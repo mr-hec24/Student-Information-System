@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -91,7 +92,7 @@ public class MainMenu
 								}
 						case 3:
 								{
-									// Sort Method In the Sort Class
+									Sort.mainMMethod();
 									break;
 								}
 						default:
