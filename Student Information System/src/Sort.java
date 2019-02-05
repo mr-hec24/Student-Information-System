@@ -42,7 +42,6 @@ public class Sort
 				}
 				
 		}
-		
 	}
 // 1) Last Name
 // 2) GPA
