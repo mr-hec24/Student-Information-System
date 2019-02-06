@@ -67,13 +67,35 @@ public class MainMenu
 						// Changing Grades / Schedules
 						case 2: 
 								{
-									// Changing_Grades mainMenu
+									System.out.println("What wouyld you like to do?"
+											+ "\n     1) Change Grade"
+											+ "\n     2) Change Schedule");
+									userInput = new Scanner (System.in);
+									int change = userInput.nextInt();
+									
+									if (change == 1)
+										{
+											GradeChange.changeGrade();
+										}
+									
+									else if (change == 2)
+										{
+											ScheduleChange.changeSchedule();
+										}
+//									else
+//										{
+//											System.out.println("Would you like else?");
+//												{
+//													
+//												}
+//										}
 									break;
 								}
 						// Sorting Students by Last Name, GPA, Classes, and First Name
 						case 3:  
 								{
-									Sort.mainMMethod();
+									// Sort Method In the Sort Class
+
 									break;
 								}
 						// Just in case the user is dumb and inputs an invalid option
