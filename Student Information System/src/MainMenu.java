@@ -37,11 +37,9 @@ public class MainMenu
 											userInput = new Scanner(System.in);
 											answer = userInput.nextInt();
 											if (answer == 1)
-												System.out.println("ADDING STUDENTS");
-											
+												AddStudent.runner();
 											else if (answer == 2)
-												System.out.println("REMOVING STUDENTS");
-											
+												DeleteStudent.runner();
 											else
 												tryAgain = true;
 											
