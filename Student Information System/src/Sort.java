@@ -31,7 +31,7 @@ public class Sort
 					System.out.println("Which period would you like to sort by? 1,2 or 3?");
 					Scanner userPeriod = new Scanner(System.in);
 					int period = userInput.nextInt();
-					
+			//jhgldkjgskjgshjfj		
 //					for (int k = 0; k < roster.size(); k ++)
 //						{
 //							System.out.println(roster.get(k).);
