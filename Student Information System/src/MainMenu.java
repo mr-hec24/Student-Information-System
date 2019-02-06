@@ -32,9 +32,10 @@ public class MainMenu
 						// Adding and Deleting Students
 						case 1: 
 								{
-									boolean tryAgain = false;
+									boolean tryAgain;
 									do
 										{
+											tryAgain = false;
 										// Adding or Deleting Menu
 										System.out.println("Would You Like To Add Or Delete A Student?"
 											+ "\n     1) Add Student"
@@ -67,35 +68,36 @@ public class MainMenu
 						// Changing Grades / Schedules
 						case 2: 
 								{
-									System.out.println("What wouyld you like to do?"
+									boolean tryAgain;
+									do
+										{
+										tryAgain = false;
+										System.out.println("Would You Like To Change A Grade Or A Schedule?"
 											+ "\n     1) Change Grade"
 											+ "\n     2) Change Schedule");
-									userInput = new Scanner (System.in);
-									int change = userInput.nextInt();
-									
-									if (change == 1)
-										{
+										userInput = new Scanner (System.in);
+										int change = userInput.nextInt();
+										
+										if (change == 1)
 											GradeChange.changeGrade();
-										}
-									
-									else if (change == 2)
-										{
+										
+										else if (change == 2)
 											ScheduleChange.changeSchedule();
-										}
-//									else
-//										{
-//											System.out.println("Would you like else?");
-//												{
-//													
-//												}
-//										}
+											
+										else
+											{
+												String[] notValidText = {"N","O","T"," ","A"," ","V","A","L","I","D"," ","O","P","T","I","O","N","!"," ","T","R","Y"," ","A","G","A","I","N","!"};
+												dramaticPrintOut(150 , notValidText);
+												tryAgain = true;
+											}
+										
+										} while (tryAgain);
 									break;
 								}
 						// Sorting Students by Last Name, GPA, Classes, and First Name
 						case 3:  
 								{
-									// Sort Method In the Sort Class
-
+									Sort.mainMethod();
 									break;
 								}
 						// Just in case the user is dumb and inputs an invalid option
@@ -161,7 +163,7 @@ public class MainMenu
 					}
 			}
 			
-		public static void dramaticPrintOut(int numberOfMilliseconds, String[] text)
+		public static void dramaticPrintOut(int numberOfMilliseconds, String[] text) // Prints Out LEtter By Letter Very Dramatically
 			{
 				for (String letter: text)
 					{

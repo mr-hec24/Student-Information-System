@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Sort
 	{
-		public static void mainMMethod()
+		public static void mainMethod()
 		{
 			ArrayList<Student> roster = MainMenu.roster;
 			
