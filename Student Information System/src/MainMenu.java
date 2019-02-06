@@ -83,7 +83,29 @@ public class MainMenu
 								}
 						case 2:
 								{
-									// Change Student Grades Or Schedule Class
+									System.out.println("What wouyld you like to do?"
+											+ "\n     1) Change Grade"
+											+ "\n     2) Change Schedule");
+									userInput = new Scanner (System.in);
+									int change = userInput.nextInt();
+									
+									if (change == 1)
+										{
+											GradeChange.changeGrade();
+										}
+									
+									else if (change == 2)
+										{
+											ScheduleChange.changeSchedule();
+										}
+//									else
+//										{
+//											System.out.println("Would you like else?");
+//												{
+//													
+//												}
+//										}
+									
 									break;
 								}
 						case 3:

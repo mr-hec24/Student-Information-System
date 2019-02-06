@@ -9,7 +9,7 @@ public class GradeChange
 	{
 
 		
-		public void changeGrade()
+		public static void changeGrade()
 			{
 				System.out.println("Which Student would you like to select?");
 				System.out.println("Here is the student list:");

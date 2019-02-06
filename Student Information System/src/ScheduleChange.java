@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ScheduleChange
 	{
 		
-		public void changeSchedule()
+		public static void changeSchedule()
 			{
 				System.out.println("Which Student would you like to select?");
 				System.out.println("Here is the student list:")
