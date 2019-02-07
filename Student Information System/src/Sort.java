@@ -16,33 +16,34 @@ public class Sort
 				{
 					for (int i = 0; i < roster.size(); i ++)
 						{
-							System.out.println(Student.getLastName());
+							System.out.println(roster.get(i).getLastName());
 						}
 				}
 			if (input == 2)
 				{
-					for (int i = 0; i < roster.size(); i ++)
+					for (int j = 0; j < roster.size(); j ++)
 						{
-							System.out.println(Student.getGpa());
+							System.out.println(roster.get(j).getGpa());
 						}
 				}
 			if (input == 3)
 				{
-					for (int i = 0; i < roster.size(); i ++)
-						{
-							System.out.println();
-						}
+					System.out.println("Which period would you like to sort by? 1,2 or 3?");
+					Scanner userPeriod = new Scanner(System.in);
+					int period = userInput.nextInt();
+				
+//					for (int k = 0; k < roster.size(); k ++)
+//						{
+//							System.out.println(roster.get(k).);
+//						}
 				}
 			if (input == 4)
 				{
-					for (int i = 0; i < roster.size(); i ++)
+					for (int l = 0; l < roster.size(); l ++)
 						{
-							System.out.println(Student.getFirstName());
+							System.out.println(roster.get(l).getFirstName());
 						}
 				}
 				
 		}
 	}
-// 1) Last Name
-// 2) GPA
-// 3) Period
