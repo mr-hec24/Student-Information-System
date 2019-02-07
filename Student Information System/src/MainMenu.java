@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.text.*;
 import java.util.*;
@@ -46,11 +45,11 @@ public class MainMenu
 											
 											// Adds Student
 											if (answer == 1)
-												System.out.println("ADDING STUDENTS");
+												AddStudent.runner();
 											
 											// Deletes Student
 											else if (answer == 2)
-												System.out.println("REMOVING STUDENTS");
+												DeleteStudent.runner();
 											
 											// Try A Different Input
 											else
