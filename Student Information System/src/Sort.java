@@ -24,6 +24,7 @@ public class Sort
 								{
 									String student1 = s1.getLastName();
 									String student2 = s2.getLastName();
+									//System.out.println("Comparing " + student1 + " to " + student2);
 									return student1.compareTo(student2);
 								}
 							};
@@ -79,6 +80,3 @@ public class Sort
 			System.out.println(" ");
 		}
 	}
-// 1) Last Name
-// 2) GPA
-// 3) Period
