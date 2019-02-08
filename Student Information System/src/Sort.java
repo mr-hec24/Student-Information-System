@@ -57,7 +57,7 @@ public class Sort
 						String className2 = s2.getCourses()[userPeriod-1].getClassName();
 						return className1.compareTo(className2);
 					}
-				}; //hdajk
+				}; 
 			}
 			
 			if (input == 4)
@@ -68,7 +68,7 @@ public class Sort
 								{
 									return s1.getFirstName().compareTo(s2.getFirstName());
 								}
-						};
+						};//kjdshfk
 				}
 			
 			Collections.sort(roster, myComparator);
