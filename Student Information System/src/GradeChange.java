@@ -11,10 +11,36 @@ public class GradeChange
 		
 		public static void changeGrade()
 			{
-				System.out.println("Which Student would you like to select?");
-				System.out.println("Here is the student list:");
-				Scanner studentSelect = new Scanner(System.in);
-				String selectingStud = studentSelect.nextLine();
+			System.out.println("Which Student would you like to select?");
+			System.out.println("Here is the student list:");
+			PrintStudents.runner();
+			Scanner studentSelect = new Scanner(System.in);
+			int selectingStud = studentSelect.nextInt();
+			
+			System.out.println("You chose " + MainMenu.roster.get(selectingStud-1).getFirstName()+".");
+			System.out.println("Which period would you like to change?");
+			Scanner classes = new Scanner(System.in);
+			int period = classes.nextInt();
+			System.out.println("What do you want the new grade to be?");
+			Scanner letterGrade = new Scanner(System.in);
+			String grades = letterGrade.nextLine();
+			
+			if(period == 1)
+			   {
+				   
+				    MainMenu.roster.get(selectingStud-1).getCourses()[0].setGrade(grades);
+			   }
+			else if(period == 2)
+				{
+				 	MainMenu.roster.get(selectingStud-1).getCourses()[1].setGrade(grades);
+				}
+			else if(period == 3)
+				{
+					MainMenu.roster.get(selectingStud-1).getCourses()[2].setGrade(grades);
+				}
+		
+			System.out.println("You just changed " +  MainMenu.roster.get(selectingStud-1).getFirstName() +  "'s "+ "period " + period + " grade.");
+			PrintStudents.runner();
 			}
 	
 	}
