@@ -25,20 +25,20 @@ public class GradeChange
 			Scanner letterGrade = new Scanner(System.in);
 			String grades = letterGrade.nextLine();
 			
-//			if(period == 1)
-//			   {
-//				    
-//				    MainMenu.roster.get(selectingStud-1).period1Grade.equals(grades);
-//			   }
-//			else if(period == 2)
-//				{
-//				 	MainMenu.roster.get(selectingStud-1).getGpa(grades);
-//				}
-//			else if(period == 3)
-//				{
-//					MainMenu.roster.get(selectingStud-1).getGpa(grades);
-//				}
-//		
+			if(period == 1)
+			   {
+				   
+				    MainMenu.roster.get(selectingStud-1).getCourses()[0].setGrade(grades);
+			   }
+			else if(period == 2)
+				{
+				 	MainMenu.roster.get(selectingStud-1).getCourses()[1].setGrade(grades);
+				}
+			else if(period == 3)
+				{
+					MainMenu.roster.get(selectingStud-1).getCourses()[2].setGrade(grades);
+				}
+		
 			System.out.println("You just changed " +  MainMenu.roster.get(selectingStud-1).getFirstName() +  "'s "+ "period " + period + " grade.");
 			PrintStudents.runner();
 			}

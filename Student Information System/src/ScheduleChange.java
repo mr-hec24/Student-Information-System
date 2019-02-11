@@ -24,23 +24,23 @@ public class ScheduleChange
 			String grades = className.nextLine();
 			System.out.println("And what would the grade for that class be?");
 			String neoGrade = className.nextLine();
-//			
-//			if(period == 1)
-//			   {
-//				    
-//				    MainMenu.roster.get(selectingStud-1).period1Grade(grades);
-//				    MainMenu.roster.get(selectingStud-1).period1Grade(neoGrade);
-//			   }
-//			else if(period == 2)
-//				{
-//					MainMenu.roster.get(selectingStud-1).period1(grades);
-//					MainMenu.roster.get(selectingStud-1).period1Grade(neoGrade);
-//				}
-//			else if(period == 3)
-//				{
-//					MainMenu.roster.get(selectingStud-1).period3Grade(grades);
-//					MainMenu.roster.get(selectingStud-1).period1Grade(neoGrade);
-//				}
+			
+			if(period == 1)
+			   {
+				    
+				   MainMenu.roster.get(selectingStud-1).getCourses()[0].setClassName(grades);
+				   MainMenu.roster.get(selectingStud-1).getCourses()[0].setGrade(neoGrade);
+			   }
+			else if(period == 2)
+				{
+					MainMenu.roster.get(selectingStud-1).getCourses()[1].setClassName(grades);
+					   MainMenu.roster.get(selectingStud-1).getCourses()[1].setGrade(neoGrade);
+				}
+			else if(period == 3)
+				{
+					MainMenu.roster.get(selectingStud-1).getCourses()[2].setClassName(grades);
+					   MainMenu.roster.get(selectingStud-1).getCourses()[2].setGrade(neoGrade);
+				}
 			
 			System.out.println("You just changed " +  MainMenu.roster.get(selectingStud-1).getFirstName() +  "'s "+ "period " + period + " grade.");
 			PrintStudents.runner();

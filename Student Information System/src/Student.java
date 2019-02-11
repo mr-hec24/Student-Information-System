@@ -6,6 +6,7 @@ public class Student
 		private String lastName;
 		private double gpa;
 		private Classes[] courses = new Classes[3];
+		private String grade;
 		
 		public Student(String f, String l, double g, Classes[] c)
 		{
@@ -13,6 +14,7 @@ public class Student
 			lastName = l;
 			gpa = g;
 			courses = c;
+			
 		}
 
 		public String getFirstName()
@@ -64,5 +66,6 @@ public class Student
 			}
 			return firstName + " " + lastName + " " + courseString + gpa;
 		}
+		
 		
 	}
