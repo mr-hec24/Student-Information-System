@@ -41,6 +41,9 @@ public class Classes
 			{
 				this.grade = grade;
 			}
-		
+		public String toString()
+		{
+			return className + " " + grade;
+		}
 		
 	}

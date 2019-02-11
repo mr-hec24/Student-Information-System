@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Student
 	{
@@ -34,7 +35,7 @@ public class Student
 				this.lastName = lastName;
 			}
 
-		public double getGpa()
+		public Double getGpa()
 			{
 				return gpa;
 			}
@@ -53,6 +54,15 @@ public class Student
 			{
 				this.courses = courses;
 			}
-		
+		public String toString()
+		{
+			String courseString = "";
+			
+			for (int i = 0; i < courses.length; i++)
+			{
+				courseString += courses[i] + " ";
+			}
+			return firstName + " " + lastName + " " + courseString + gpa;
+		}
 		
 	}
