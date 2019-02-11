@@ -32,13 +32,13 @@ public class Sort
 			if (input == 2)
 				{
 				
-				myComparator = new Comparator <Student>()
-				{
-					public int compare(Student s1, Student s2)
-					{
-						return s1.getGpa().compareTo(s2.getGpa());
-					}
-				};
+          myComparator = new Comparator <Student>()
+          {
+            public int compare(Student s1, Student s2)
+            {
+              return s1.getGpa().compareTo(s2.getGpa());
+            }
+          };
 				}
 			
 			if (input == 3)
@@ -68,7 +68,7 @@ public class Sort
 								{
 									return s1.getFirstName().compareTo(s2.getFirstName());
 								}
-						};//kjdshfk
+						};
 				}
 			
 			Collections.sort(roster, myComparator);
