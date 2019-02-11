@@ -8,7 +8,6 @@ public class ScheduleChange
 		
 		public static void changeSchedule()
 			{
-<<<<<<< HEAD
 			System.out.println("Which Student would you like to select?");
 			System.out.println("Here is the student list:");
 			PrintStudents.runner();
@@ -45,11 +44,5 @@ public class ScheduleChange
 			
 			System.out.println("You just changed " +  MainMenu.roster.get(selectingStud-1).getFirstName() +  "'s "+ "period " + period + " grade.");
 			PrintStudents.runner();
-=======
-				System.out.println("Which Student would you like to select?");
-				System.out.println("Here is the student list:");
-				Scanner studentSelect = new Scanner(System.in);
-				String selectingStud = studentSelect.nextLine();
->>>>>>> refs/remotes/origin/master
 			}
 	}
