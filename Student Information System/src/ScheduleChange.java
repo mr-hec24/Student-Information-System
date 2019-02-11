@@ -24,7 +24,7 @@ public class ScheduleChange
 			String grades = className.nextLine();
 			System.out.println("And what would the grade for that class be?");
 			String neoGrade = className.nextLine();
-			
+//			
 //			if(period == 1)
 //			   {
 //				    
