@@ -12,24 +12,22 @@ public class DeleteStudent
 				String fullName = userInput.nextLine();
 				boolean deleted = false;
 				for (int i = 0; i < MainMenu.roster.size(); i++){
-					if ((MainMenu.roster.get(i).getFirstName() + " " + MainMenu.roster.get(i).getLastName()).equals(fullName)){
+					String tempName = MainMenu.roster.get(i).getFirstName() + " " + MainMenu.roster.get(i).getLastName();
+					if (tempName.equals(fullName)){
 						MainMenu.roster.remove(i);
+						System.out.println("Removed " + tempName);
 						deleted = true;
 					}
-					if (deleted == false){
-						System.out.println("No student of that name can be found");
-						System.out.println("Try Again?");
-						System.out.println("1) Yes");
-						System.out.println("2) No");
-						int tryAgain = userInput.nextInt();
-						
-						if(tryAgain == 1){
-							DeleteStudent.runner();
-						}
-					}
-					else {
-						PrintStudents.runner();
-						
+				}
+				if (deleted == false){
+					System.out.println("No student of that name can be found");
+					System.out.println("Try Again?");
+					System.out.println("     1) Yes");
+					System.out.println("     2) No");
+					int tryAgain = userInput.nextInt();
+					
+					if(tryAgain == 1){
+						DeleteStudent.runner();
 					}
 				}
 			}
