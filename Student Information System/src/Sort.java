@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Sort
 	{
@@ -12,38 +14,69 @@ public class Sort
 			Scanner userInput = new Scanner(System.in);
 			int input = userInput.nextInt();
 			
+			Comparator <Student> myComparator = null;
+			
 			if (input == 1)
 				{
-					for (int i = 0; i < roster.size(); i ++)
-						{
-							System.out.println(roster.get(i).getLastName());
-						}
+					myComparator = new Comparator <Student>()
+							{
+								public int compare(Student s1, Student s2)
+								{
+									String student1 = s1.getLastName();
+									String student2 = s2.getLastName();
+									//System.out.println("Comparing " + student1 + " to " + student2);
+									return student1.compareTo(student2);
+								}
+							};
 				}
 			if (input == 2)
 				{
-					for (int j = 0; j < roster.size(); j ++)
-						{
-							System.out.println(roster.get(j).getGpa());
-						}
-				}
-			if (input == 3)
-				{
-					System.out.println("Which period would you like to sort by? 1,2 or 3?");
-					Scanner userPeriod = new Scanner(System.in);
-					int period = userInput.nextInt();
 				
-//					for (int k = 0; k < roster.size(); k ++)
-//						{
-//							System.out.println(roster.get(k).);
-//						}
+          myComparator = new Comparator <Student>()
+          {
+            public int compare(Student s1, Student s2)
+            {
+              return s1.getGpa().compareTo(s2.getGpa());
+            }
+          };
 				}
+			
+			if (input == 3)
+			{
+				System.out.println("Which period would you like to sort?");
+				Scanner userEntry = new Scanner(System.in);
+				final int userPeriod = userEntry.nextInt();
+				
+				
+				
+				myComparator = new Comparator <Student>()
+				{
+					public int compare(Student s1, Student s2)
+					{
+						String className1 = s1.getCourses()[userPeriod-1].getClassName();
+						String className2 = s2.getCourses()[userPeriod-1].getClassName();
+						return className1.compareTo(className2);
+					}
+				}; 
+			}
+			
 			if (input == 4)
 				{
-					for (int l = 0; l < roster.size(); l ++)
+					myComparator = new Comparator <Student>()
 						{
-							System.out.println(roster.get(l).getFirstName());
-						}
+							public int compare(Student s1, Student s2)
+								{
+									return s1.getFirstName().compareTo(s2.getFirstName());
+								}
+						};
 				}
+			
+			Collections.sort(roster, myComparator);
+			for (int x = 0; x < roster.size(); x++)
+			{
+				System.out.println(roster.get(x));
 				
+			}
+			System.out.println(" ");
 		}
 	}
