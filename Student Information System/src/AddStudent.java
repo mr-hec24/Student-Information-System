@@ -45,6 +45,7 @@ public class AddStudent
 				String tempGPA = decimal.format(gpa);
 				gpa = Double.valueOf(tempGPA);
 				
+				System.out.println("Added " + firstName);
 				MainMenu.roster.add(new Student(firstName, lastName, gpa, courses));
 			}
 	}
